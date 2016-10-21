@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <math.h>
+#include <sstream>
 
 using namespace std;
 
@@ -103,6 +104,44 @@ int main(){
 				break;
 			}
 			case 3:{
+				string numero;
+				cout<<"\nIngrese el numero:"<<endl;
+				cin>> numero;
+				int num;
+				stringstream(numero) >> num;
+				int arreglo[numero.size()];
+				int suma = 0;
+				for (int i = 0; i < numero.size(); ++i)
+				{
+					int a= (int)numero[i];
+					suma+= a-48;
+				}
+
+				if (num%suma==0)
+				{
+					cout<<"El numero es un numero de Harshad"<<endl;
+				}else{
+					cout<<"El numero no es un numero de Harshad"<<endl;
+				}
+				int cont = 1;
+				for (int i = 1; i < numero.size(); ++i)
+				{
+					int suma2 = 0;
+					for (int i = 0; i < numero.size()-i; ++i)
+					{
+						int a= (int)numero[i];
+						suma2+= a-48;
+
+					}
+					if(num%suma==0){
+						cont++;
+					}
+				}
+				if(cont==numero.size()){
+					cout<<"El numero tambien es trucable"<<endl;
+				}else{
+					cout<<"El numero no es trucable"<<endl;
+				}
 
 				break;
 			}
