@@ -70,7 +70,7 @@ int main(){
 				cout<<"\nIngrese un numero: ";
 				cin>>n;
 				int contador= 0;
-				for (int i = 1; i < n; ++i)
+				for (int i = 1; i <= n; ++i)
 				{
 					if (n%i==0)
 					{
@@ -78,7 +78,7 @@ int main(){
 					}
 				}
 				int arreglo[contador];
-				int contador2 = 0;
+				int contador2 = 0; 
 				for (int i = 1; i <= n; ++i)
 				{
 					if (n%i==0)
@@ -87,13 +87,15 @@ int main(){
 						contador2++;
 					}
 				}
+				cout<<arreglo[0];
 				int respuesta = 0;
-				for (int i = 0; i < contador; ++i)
+
+				for (int i = 0; i < contador2; ++i)
 				{
-					int a = arreglo[i]+n/arreglo[i];
-					bool prime = primo(a);
+					int k = (arreglo[i]+n)/arreglo[i];
+					bool prime = primo(k);
 					if(prime){
-						respuesta+=a;
+						respuesta+=k;
 					}
 				}
 				cout<<"\nLa respuesta es "<<respuesta<<endl;
@@ -111,7 +113,7 @@ int main(){
 
 bool primo(int x){
 	int cont=0;
-	for (int i = 0; i < x; ++i)
+	for (int i = 1; i <= x; ++i)
 	{
 		if(x%i==0)
 		{
